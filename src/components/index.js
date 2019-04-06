@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { Router, Redirect } from '@reach/router'
+import { Router, Redirect, navigate } from '@reach/router'
 import { ThemeProvider } from 'styled-components'
 import { Reset } from 'styled-reset'
 
@@ -12,9 +12,8 @@ import theme from './themes/default'
 import { PageTemplate } from './templates'
 import { getCookie } from '../services/functions'
 
-const checkAuth = (yes, no) => {
-  console.log(getCookie('isLoggined'))
-  return getCookie('isLoggined') ? yes : no}
+const PrivateRoute = ({ component: Component, ...props }) =>
+  getCookie('isLoggined') ? <Component {...props} /> : (navigate('/login'), null)
 
 const App = () =>
   <ThemeProvider theme={theme}>
@@ -23,7 +22,7 @@ const App = () =>
       <PageTemplate>
         <Router>
           <Home path="/" />
-          {checkAuth(<Profile path='profile' />, <Redirect from='profile' to="login" noThrow />)}
+          <PrivateRoute path='profile' component={Profile} />
           <News path='news' />
           <Login path='login' />
         </Router>
