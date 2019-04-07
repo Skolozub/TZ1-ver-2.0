@@ -3,10 +3,14 @@
  */
 
 import React from 'react'
+import { H1 } from '../../atoms'
+
+import { NewsContainer } from './../../../containers'
 
 const News = () =>
   <div>
-    <h2>News</h2>
+    <H1>Новости</H1>
+    <NewsContainer />
   </div>
 
 export default News

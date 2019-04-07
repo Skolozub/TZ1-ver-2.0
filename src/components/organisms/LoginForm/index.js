@@ -9,7 +9,7 @@ import { Form, withFormik } from 'formik'
 import { Button, ErrorForm } from '../../atoms'
 import { LabelField } from '../../molecules'
 import { options } from './options.formik'
-import { withLogin } from '../../../services/decorators'
+import { withLogin } from '../../../decorators'
 
 const LoginFormDefault = ({ isLogined, userLogout, className, errorMsg }) =>
   <>

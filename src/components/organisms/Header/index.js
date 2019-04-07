@@ -16,8 +16,13 @@ const HeaderDefault = ({ children, ...props }) =>
   </header>
 
 const Header = styled(HeaderDefault)`
-  border-bottom:  ${palette('grayscale', 5)} 1px solid;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: ${palette('grayscale', 5)} 1px solid;
   margin-bottom: 20px;
+  background: ${palette('white', 0)}
 `
 
 export default Header
